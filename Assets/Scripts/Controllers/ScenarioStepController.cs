@@ -16,7 +16,7 @@ public class ScenarioStepController : MonoBehaviour
     }
     private void Start()
     {
-        _scenarioSteps[_currentScenarioStep].StartScenarioStep();
+        StartCoroutine(StartScenario());
     }
     private void OnStartNextScenarioStep()
     {
@@ -27,5 +27,10 @@ public class ScenarioStepController : MonoBehaviour
     public ScenarioStep GetCurrentScenarioStep()
     {
         return _scenarioSteps[_currentScenarioStep];
+    }
+    public IEnumerator StartScenario()
+    {
+        yield return new WaitForSeconds(1f);
+        _scenarioSteps[_currentScenarioStep].StartScenarioStep();
     }
 }

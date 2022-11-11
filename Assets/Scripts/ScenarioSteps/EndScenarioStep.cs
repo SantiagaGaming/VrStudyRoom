@@ -6,6 +6,7 @@ public class EndScenarioStep : ScenarioStep
 {
     [SerializeField] private GameObject _actionsScreen;
     [SerializeField] private MenuController _menuController;
+    [SerializeField] private GameObject _exitButton;
     protected override void CheckActions(int number)
     {
        
@@ -17,6 +18,7 @@ public class EndScenarioStep : ScenarioStep
             GamePanelView.Instance.SetDescriptionText("");
             GamePanelView.Instance.SetActionText("");
             _actionsScreen.SetActive(false);
+            _exitButton.SetActive(true);
             helpInputObject.Hide();
         }
   
